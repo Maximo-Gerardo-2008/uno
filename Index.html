@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Calculadora</title>
+</head>
+<body background="img/Fondo.jpg" style="background-size: 100%;">
+
+    <table border="4" align="center" width="auto" style="background-color: blue; border-radius: 30px; border-color: black;"> 
+        <tr>
+            <td> 
+
+
+                <h2 align="center" style="font-size: 30px; color: white;"> Maximo Gerardo Valenzuela Mercado </h2>
+
+                <input type="number" id="n1" placeholder="Ingrese Numero" style="margin-left: 10px;">
+                <input type="number" id="n2" placeholder="Ingrese Numero" style="margin-left: 10px;">
+                <br><br><br>
+
+                <button onclick="calcular('+')" style="margin-left: 30px; width: 150px; border-radius: 20px;"> <img src="img/Suma.png" alt="Sumar" style="max-width: 80px;"> </button>
+                <button onclick="calcular('-')" style="margin-left: 30px; width: 150px; border-radius: 20px;"> <img src="img/Resta.png" alt="Restar" style="max-width: 80px;" > </button>
+                <br>
+
+                <button onclick="calcular('*')" style="margin-left: 30px; width: 150px; border-radius: 20px;"> <img src="img/Multiplicacion.png" alt="Multiplicar" style="max-width: 80px;"> </button>
+                <button onclick="calcular('/')" style="margin-left: 30px; width: 150px; border-radius: 20px;"> <img src="img/Division.png" alt="Dividir" style="max-width: 80px;"> </button>
+                <br>
+
+                <h3>Resultado: <span id="resultado">0</span></h3>
+
+
+            </td>
+        </tr>
+    </table>
+        <script>
+            function calcular(operacion) {
+            let n1 = parseFloat(document.getElementById("n1").value);
+            let n2 = parseFloat(document.getElementById("n2").value);
+            let resultado;
+ 
+            if (isNaN(n1) || isNaN(n2)) {
+                alert("Por favor ingresa números válidos");
+                return;
+            }
+ 
+            switch (operacion) {
+                case '+':
+                    resultado = n1 + n2;
+                    break;
+                case '-':
+                    resultado = n1 - n2;
+                    break;
+                case '*':
+                    resultado = n1 * n2;
+                    break;
+                case '/':
+                    if (n2 === 0) {
+                        alert("No se puede dividir entre 0");
+                        return;
+                    }
+                    resultado = n1 / n2;
+                    break;
+            }
+            document.getElementById("resultado").textContent = resultado;
+            }
+        </script>
+</body>
+
+ <footer style="background-color: #333; color: blue; text-align: center; padding: 10px; margin-top: 27%;">
+    <p> © Maximo Gerardo Valenzuela Mercado - Alondra Zavala - 4A PROGRAMACION - CBTIS 206 - 2025</p>
+  </footer>
+
+</html>
+
